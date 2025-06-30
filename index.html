@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation</title>
+    <style>
+        body { font-family: Arial; padding: 40px; background: #f2f2f2; }
+        input { padding: 10px; margin: 5px; }
+        form { background: #fff; padding: 20px; border-radius: 5px; width: 400px; margin: auto; }
+    </style>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2 align="center">🌿 Crop Recommendation System</h2>
+    <form method="post" action="/predict">
+        <input type="number" name="N" placeholder="ratio of Nitrogen content in soil" required><br>
+        <input type="number" name="P" placeholder="ratio of Phosphorous content in soil" required><br>
+        <input type="number" name="K" placeholder="ratio of Potassium content in soil" required><br>
+        <input type="number" name="temperature" placeholder="temperature in degree Celsius" required><br>
+        <input type="number" name="humidity" placeholder="relative humidity in %" required><br>
+        <input type="number" name="ph" placeholder="ph value of the soil" required><br>
+        <input type="number" name="rainfall" placeholder="Rainfall in (mm)" required><br>
+        <input type="submit" value="Recommend Crop">
+    </form>
+
+    {% if result %}
+    <h3 align="center">{{ result }}</h3>
+    {% endif %}
+</body>
+</html>
